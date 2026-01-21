@@ -58,7 +58,27 @@ let books = [
 { id: 47, title: 'Mahabharata', author: 'Ved Vyasa', price: 30.00, quantity: 6 },
 { id: 48, title: 'The Story of My Life', author: 'Hellen Keller (Indian editions)', price: 13.00, quantity: 10 },
 { id: 49, title: 'Pather Panchali', author: 'Bibhutibhushan Bandopadhyay', price: 14.50, quantity: 9 },
-{ id: 50, title: 'Devdas', author: 'Sarat Chandra Chattopadhyay', price: 12.50, quantity: 11 }
+{ id: 50, title: 'Devdas', author: 'Sarat Chandra Chattopadhyay', price: 12.50, quantity: 11 },
+{ id: 51, title: 'Swami and Friends', author: 'R.K. Narayan', price: 13.00, quantity: 10 },
+{ id: 52, title: 'The Bachelor of Arts', author: 'R.K. Narayan', price: 14.00, quantity: 8 },
+{ id: 53, title: 'Kanthapura', author: 'Raja Rao', price: 15.50, quantity: 7 },
+{ id: 54, title: 'Clear Light of Day', author: 'Anita Desai', price: 16.00, quantity: 6 },
+{ id: 55, title: 'The Peacock Spring', author: 'Ruskin Bond', price: 12.00, quantity: 11 },
+{ id: 56, title: 'Delhi: A Novel', author: 'Khushwant Singh', price: 18.00, quantity: 7 },
+{ id: 57, title: 'I Too Had a Love Story', author: 'Ravinder Singh', price: 10.50, quantity: 15 },
+{ id: 58, title: 'The Monk Who Sold His Ferrari', author: 'Robin Sharma', price: 14.50, quantity: 20 },
+{ id: 59, title: 'Revolution 2020', author: 'Chetan Bhagat', price: 11.00, quantity: 18 },
+{ id: 60, title: 'Half Girlfriend', author: 'Chetan Bhagat', price: 12.00, quantity: 17 },
+{ id: 61, title: 'Ghachar Ghochar', author: 'Vivek Shanbhag', price: 13.50, quantity: 9 },
+{ id: 62, title: 'The Illicit Happiness of Other People', author: 'Manu Joseph', price: 17.00, quantity: 6 },
+{ id: 63, title: 'Serious Men', author: 'Manu Joseph', price: 16.50, quantity: 7 },
+{ id: 64, title: 'The Lives of Others', author: 'Neel Mukherjee', price: 19.00, quantity: 5 },
+{ id: 65, title: 'The Hungry Tide', author: 'Amitav Ghosh', price: 17.50, quantity: 8 },
+{ id: 66, title: 'River of Smoke', author: 'Amitav Ghosh', price: 18.00, quantity: 6 },
+{ id: 67, title: 'The Calcutta Chromosome', author: 'Amitav Ghosh', price: 16.00, quantity: 7 },
+{ id: 68, title: 'The Rozabal Line', author: 'Ashwin Sanghi', price: 15.00, quantity: 9 },
+{ id: 69, title: 'Chanakya’s Chant', author: 'Ashwin Sanghi', price: 16.50, quantity: 8 },
+{ id: 70, title: 'Keepers of the Kalachakra', author: 'Ashwin Sanghi', price: 17.00, quantity: 6 }
 ];
 
 // Get all books
