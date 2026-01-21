@@ -1,0 +1,71 @@
+<!-- A node.js program using Express framework to
+accept user name, Branch, Semester, from web page and display the information as below
+a) Handle both get and post methods
+b) Branch should be underlined
+c) Name should be in bold face. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Information</title>
+
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+.container { max-width: 500px; margin: auto; }
+h2 { text-align: center; }
+form {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+label { display: block; margin-bottom: 5px; }
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+button { padding: 10px 15px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Student Information Form</h2>
+
+<!-- GET METHOD FORM -->
+<form action="/submit-get" method="get">
+<h3>Using GET Method</h3>
+
+<label>Name:</label>
+<input type="text" name="name" required>
+
+<label>Branch:</label>
+<input type="text" name="branch" required>
+
+<label>Semester:</label>
+<input type="text" name="semester" required>
+
+<button type="submit">Submit (GET)</button>
+</form>
+
+<!-- POST METHOD FORM -->
+<form action="/submit-post" method="post">
+<h3>Using POST Method</h3>
+
+<label>Name:</label>
+<input type="text" name="name" required>
+
+<label>Branch:</label>
+<input type="text" name="branch" required>
+
+<label>Semester:</label>
+<input type="text" name="semester" required>
+
+<button type="submit">Submit (POST)</button>
+</form>
+
+</div>
+</body>
+</html>
