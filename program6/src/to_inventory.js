@@ -43,7 +43,7 @@ function AddInventory(){
     
     const SubmitEvent=async()=>{
         const fo={id,prodname,qty,price};
-        await.axios.post("http://localhost:8000/add",fo);
+        await axios.post("http://localhost:8000/add",fo);
         alert("Inventory added");
     };
 
@@ -52,7 +52,7 @@ function AddInventory(){
             <h1>Add Inventory</h1>
             <input type="number" placeholder="ID" onChange={e => setId(e.target.value)} />
             <input type="text" placeholder="Product Name" onChange={e=> setProdname(e.target.value)} />
-            <input type="number" placeholder="Quantity" onChange={e=>serQty(e.target.value)}/>
+            <input type="number" placeholder="Quantity" onChange={e=>setQty(e.target.value)}/>
             <input type="number" placeholder="Price" onChange={e => setPrice(e.target.value)} /><br/>
             <button onClick={SubmitEvent}>Add</button>
         </div>
