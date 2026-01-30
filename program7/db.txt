@@ -1,0 +1,114 @@
+//Developed a MongoDB query for comparison selectors,Logical Selectors for Company database
+$mongosh
+## Setup: Sample employees Collection 🏢
+First, let's insert some sample data into an employees collection to use for our queries.
+db.employees.insertMany([
+{
+employee_id: 101,
+name: "Sonia Rao",
+department: "Engineering",
+salary: 95000,
+hire_date: new Date("2023-01-15"),
+performance_score: 4.5,
+status: "Active"
+}, {
+employee_id: 102,
+name: "Rajesh Kumar",
+department: "HR",
+salary: 68000,
+hire_date: new Date("2024-03-22"),
+performance_score: 4.1,
+status: "Active"
+}, {
+employee_id: 103,
+name: "Arjun Singh",
+department: "Engineering",
+salary: 120000,
+hire_date: new Date("2022-06-01"),
+performance_score: 4.8,
+status: "Active"
+}, {
+employee_id: 104,
+name: "Priya Mehta",
+department: "Sales",
+salary: 85000,
+hire_date: new Date("2023-11-10"),
+performance_score: 4.2,
+status: "Active"
+}, {
+employee_id: 105,
+name: "Vikram Reddy",
+department: "Sales",
+salary: 85000,
+hire_date: new Date("2024-08-01"),
+status: "On Leave"
+}
+]);
+## 1. Comparison Selectors
+These operators compare the value of a field against a specified value.
+$gt (Greater Than) & $lte (Less Than or Equal To)
+ Goal: Find all employees with a salary greater than $90,000 but less than or equal to
+$120,000.
+ Query:
+db.employees.find({
+salary: { $gt: 90000, $lte: 120000 }
+})
+ Explanation: This query finds documents where the salary is between 90,001 and
+120,000, inclusive. It will find Sonia Rao and Arjun Singh.
+$in (In an Array)
+ Goal: Find all employees who work in either the "HR" or "Sales" department.
+ Query:
+db.employees.find({
+department: { $in: ["HR", "Sales"] }
+})
+ Explanation: The $in operator selects documents where the department field's value
+exactly matches any value in the provided array. It will find Rajesh Kumar, Priya Mehta,
+and Vikram Reddy.
+$ne (Not Equal)
+ Goal: Find all employees whose status is not "On Leave".
+ Query:
+db.employees.find({
+status: { $ne: "On Leave" }
+})
+ Explanation: The $ne operator selects all documents where the status field value is not
+equal to the specified value.
+## 2. Logical Selectors
+These operators are used to combine multiple query conditions.
+$and (Implicit)
+ Goal: Find employees in the "Engineering" department with a performance_score of 4.5
+or higher.
+ Query:
+db.employees.find({
+department: "Engineering",
+performance_score: { $gte: 4.5 }
+})
+ Explanation: When you list multiple fields separated by a comma in a find() query,
+MongoDB treats it as an $and condition by default. This is the most common way to
+combine conditions. This query will find Sonia Rao and Arjun Singh.
+$or
+ Goal: Find employees who are either in the "HR" department OR have a salary greater
+than $100,000.
+ Query:
+db.employees.find({
+$or: [
+{ department: "HR" },
+{ salary: { $gt: 100000 } }
+]
+})
+ Explanation: The $or operator takes an array of condition objects and selects documents
+that satisfy at least one of the conditions. This will find Rajesh Kumar (matches
+department) and Arjun Singh (matches salary).
+## 3. Combining Selectors for a Complex Query ✨
+Real-world scenarios often require combining multiple operators.
+ Goal: Find all Active employees in either the Engineering or Sales departments who
+were hired before 2024.
+ Query:
+db.employees.find({
+status: "Active",
+department: { $in: ["Engineering", "Sales"] },
+hire_date: { $lt: new Date("2024-01-01") }
+})
+Explanation: This query implicitly uses $and to combine three conditions:
+1.The status must be "Active".
+2.The department must be one of the values in the $in array
+3.The hire_date must be less than ($lt) the specified date.
