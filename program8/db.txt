@@ -1,3 +1,97 @@
 //Executed an aggregation pipeline and its operation to illustrate text search on catalog data collection
 
 $mongosh
+
+Step 1: Prepare the data
+
+db.catalog.insertMany([
+    {
+        item_id:"A001",
+        name:"Apple iPhone 12",
+        description:"The latest iPhone with A14 Bionic chip and 5G support.",
+        price:799,
+        category:"Electronics"
+    },
+    {
+        item_id:"A002",
+        name:"Samsung Galaxy S21",
+        description:"Flagship smartphone with Exynos 2100 and 120Hz display.",
+        price:999,
+        category:"Electronics"
+    },
+    {
+        item_id:"A003",
+        name:"Sony WH-1000XM4",
+        description:"Noise-canceling wireless headphones with long battery life.",
+        price:349,
+        category:"Audio"
+    }
+])
+
+
+Step 2: Create a text index
+
+db.catalog.createIndex({name:"text",description:"text"
+})
+
+Step 3: Build and execute the aggregation pipeline
+//stage1
+
+
+{
+    $match: {
+        $text: {
+            $search: "smartphone"
+        }
+    }
+}
+
+
+
+//stage2
+
+{
+    $project:{
+        _id:0,
+        name:1,
+        description:1,
+        price:1,
+        score:{$meta:"textScore"}
+    }
+}
+
+
+
+
+db.catalog.aggregate([
+//Stage 1 : Filter documents using the text index
+    {
+        $match: {
+            $text: {
+                $search: "smartphone"
+            }
+        }
+    }
+])
+
+//Stage 2: Reshape the output and include the relevance score
+{
+    $project:{
+        _id:0,
+        name:1,
+        description:1,
+        price:1,
+        score:{$meta:"textScore"}
+    }
+}
+
+
+//Expected output
+[
+    {
+        "name": "Samsung Galaxy S21",
+        "description": "Flagship smartphone with Exynos 2100 and 120Hz display.",
+        "price": 999,
+        "score": 1.0
+    }
+]
