@@ -26,6 +26,62 @@ db.catalog.insertMany([
         price:349,
         category:"Audio"
     }
+    {
+        item_id:"A004",
+        name:"Dell XPS 13",
+        description:"Compact and powerful laptop with Intel Core i7 processor.",
+        price:1199,
+        category:"Computers"
+    }
+    {
+        item_id:"A005",
+        name:"Apple MacBook Pro",
+        description:"High-performance laptop with M1 chip and Retina display.",
+        price:1299,
+        category:"Computers"
+    }
+    {
+        item_id:"A006",
+        name:"Bose QuietComfort 35 II",
+        description:"Wireless headphones with excellent noise cancellation.",
+        price:299,
+        category:"Audio"
+    }
+    {
+        item_id:"A007",
+        name:"Google Pixel 5",
+        description:"Google's flagship smartphone with excellent camera performance.",
+        price:699,
+        category:"Electronics"
+    }
+    {
+        item_id:"A008",
+        name:"Microsoft Surface Pro 7",
+        description:"Versatile 2-in-1 laptop with detachable keyboard and touchscreen.",
+        price:899,
+        category:"Computers"
+    }
+    {
+        item_id:"A009",
+        name:"Sony PlayStation 5",
+        description:"Next-gen gaming console with powerful hardware and exclusive games.",
+        price:499,
+        category:"Gaming"
+    }
+    {
+        item_id:"A010",
+        name:"Nintendo Switch",
+        description:"Portable gaming console with versatile play modes and popular games.",
+        price:299,
+        category:"Gaming"
+    }
+    {
+        item_id:"A011",
+        name:"Apple AirPods Pro",
+        description:"Wireless earbuds with active noise cancellation and transparency mode.",
+        price:249,
+        category:"Audio"
+    }
 ])
 
 
